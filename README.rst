@@ -82,3 +82,7 @@ Quick start dev
 7. Build when you make edits to scripts.js.
 
     yarn run gulp build-js
+
+8. If you wish, remake the django package.
+
+    python setup.py sdist

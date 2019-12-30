@@ -7,7 +7,6 @@ django_user_feedback.egg-info/PKG-INFO
 django_user_feedback.egg-info/SOURCES.txt
 django_user_feedback.egg-info/dependency_links.txt
 django_user_feedback.egg-info/top_level.txt
-docs/.DS_Store
 user_feedback/__init__.py
 user_feedback/admin.py
 user_feedback/apps.py
@@ -23,5 +22,4 @@ user_feedback/migrations/__init__.py
 user_feedback/static/.DS_Store
 user_feedback/static/user_feedback/.DS_Store
 user_feedback/static/user_feedback/brand/SCIVERO-LOGO-DARK.png
-user_feedback/static/user_feedback/js/scripts.js
 user_feedback/static/user_feedback/js/scripts.min.js

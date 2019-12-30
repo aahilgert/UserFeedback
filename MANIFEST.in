@@ -1,3 +1,8 @@
 include LICENSE
 include README.rst
 recursive-include user_feedback/static/user_feedback/js/scripts.min.js
+exclude user_feedback/urls_test.py
+exclude user_feedback/views_test.py
+exclude user_feedback/settings.py
+exclude user_feedback/templates/user_feedback/template.html
+exclude user_feedback/static/user_feedback/js/scripts.js
