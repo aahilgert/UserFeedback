@@ -52,3 +52,33 @@ Quick start
       "{% trans 'Thanks for your feedback!' %}",
       "{% trans 'Sorry, please try again later!' %}"
     );
+
+Quick start dev
+---------------
+
+1. Install node modules.
+
+    npm install
+
+2. Install dev-requirements.
+
+    pip install -r requirements/dev-requirements.txt
+
+3. Install pre-commit.
+
+    pre-commit install
+
+4. Create a superuser and login.
+
+    ./manage.py createsuperuser
+    ...
+
+5. Start the server.
+
+    python user_feedback.py runserver
+
+6. Navigate to '(root)/test/button/', to see the user_feedback button in action.
+
+7. Build when you make edits to scripts.js.
+
+    yarn run gulp build-js
