@@ -24,10 +24,9 @@ class DialogPage extends Component {
   state = { rating: null, text: '', author: null, url: window.location.pathname, type: null };
 
   onSubmit = e => {
-    postFeedback(this.state);
+    postFeedback(this);
     e.preventDefault();
     this.setState({ rating: null, text: '', type: null });
-    this.snack.MDComponent.show({message: "Thanks for your feedback!"});
   }
 
   onClose = e => {
@@ -64,7 +63,7 @@ class DialogPage extends Component {
         }} class="material-icons-outlined" style="cursor: pointer; font-size: 48px;">feedback</Icon>
         <Dialog style="padding: 0; border: 0; width: 0;" ref={dlg=>{this.dlg=dlg;}}>
           <form id="feedback-form">
-            <Dialog.Header>{titleParam}</Dialog.Header>
+            <Dialog.Header>{this.props.titleParam}</Dialog.Header>
             <Dialog.Body scrollable={false}>
               <div>
                 <FormField>
@@ -103,12 +102,12 @@ class DialogPage extends Component {
                 </IconButton>
               </div>
               <div>
-                <TextField textarea={true} label="text" value={this.state.text} onInput={this.updateText}/>
+                <TextField textarea={true} label="text" value={this.state.text} onInput={this.updateText} maxlength="400"/>
               </div>
             </Dialog.Body>
             <Dialog.Footer>
               <a href="https://scivero.com">
-                <img src={logoUrl} style="position: absolute; width: 100px; left: 0; padding-left: 24px; bottom: 0; padding-bottom: 14px;" alt="Scivero"/>
+                <img src={this.props.logoUrl} style="position: absolute; width: 100px; left: 0; padding-left: 24px; bottom: 0; padding-bottom: 14px;" alt="Scivero"/>
               </a>
               <Dialog.FooterButton cancel={true} onClick={this.onClose}>Cancel</Dialog.FooterButton>
               <Dialog.FooterButton accept={true} disabled={this.state.type==null||this.state.rating==null&&(!this.state.text||this.state.text.trim()=='')||this.state.type!=3&&(!this.state.text||this.state.text.trim()=='')} raised={true} onClick={this.onSubmit}>Submit</Dialog.FooterButton>
@@ -140,21 +139,23 @@ function getCsrfToken() {
       .getAttribute("value");
 }
 
-function postFeedback(state){
-  console.log(state);
-  let posting = $.post(window.location.origin+"/feedback/post", {json: JSON.stringify(state)});
-  posting.done(function(data) {
-    console.info(data);
-  });
+function postFeedback(component){
+  $.post(window.location.origin+"/feedback/post", {json: JSON.stringify(component.state)})
+    .done(function(data){
+      if(data.action=="posted"){
+        component.snack.MDComponent.show({message: component.props.snackMessageOnSuccess});
+      }else{
+        component.snack.MDComponent.show({message: component.props.snackMessageOnFailure});
+      }
+    })
+    .fail(function(data){
+        component.snack.MDComponent.show({message: component.props.snackMessageOnFailure});
+      }
+    );
 }
 
-let titleParam = 'Let us know how we can improve your experience!';
-let logoUrl = '';
-
-export function injectDialog(titleText, url){
-  titleParam = titleText;
-  logoUrl = url;
+export function injectDialog(titleText, url, successMessage, failureMessage){
   if(document.body.contains(document.getElementById("user-feedback-container"))){
-    render(<DialogPage/>, document.getElementById("user-feedback-container"));
+    render(<DialogPage titleParam={titleText} logoUrl={url} snackMessageOnSuccess={successMessage} snackMessageOnFailure={failureMessage} />, document.getElementById("user-feedback-container"));
   }
 }

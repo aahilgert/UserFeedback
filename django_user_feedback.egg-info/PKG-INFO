@@ -12,8 +12,6 @@ Description: =====
         
         user_feedback is a simple Django app to collect and store user feedback.
         
-        Detailed documentation is in the "docs" directory.
-        
         Quick start
         -----------
         
@@ -35,6 +33,33 @@ Description: =====
         5. Add admin emails to `ADMINS`'s list of tuples in your project's settings.py
         
             ADMINS = [('John', 'john@example.com'), ('Mary', 'mary@example.com')]
+        
+        6. If '/accounts/login/' is not active, make sure to have a `LOGIN_URL` in your settings.py.
+        
+        7. Import user_feedback's minified script in your base template(s).
+        
+            <script src="{% static 'user_feedback/js/scripts.min.js' %}" defer="true"></script>
+        
+        8. Place the following element in templates where you would like for users to offer feedback.
+        
+            <div id="user-feedback-container"></div>
+        
+        9. If not in the template already, add a csrf token.
+        
+            {% csrf_token %}
+        
+        10. Add the desired company logo to your static file.
+        
+        11. Inject the diolog scripts by calling the `injectDialog` funciton.
+            `injectDialog` will take four parameters, dialog title, company logo path,
+            snackbar post success message, and snackbar post failure message.
+        
+            root.injectDialog(
+              "{% trans 'Let us know how we can improve your experience!' %}",
+              "{% static 'user_feedback/brand/SCIVERO-LOGO-DARK.png' %}",
+              "{% trans 'Thanks for your feedback!' %}",
+              "{% trans 'Sorry, please try again later!' %}"
+            );
         
 Platform: UNKNOWN
 Classifier: Environment :: Web Environment

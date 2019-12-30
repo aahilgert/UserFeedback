@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import (
-    Feedback
+    Feedback,
+    User,
 )
 
 
@@ -20,7 +21,7 @@ class FeedbackSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         return Feedback.objects.create(
-            author=validated_data['author'],
+            author=User.objects.get(pk=self.initial_data['author']),
             rating=validated_data['rating'],
             text=validated_data['text'],
             url=validated_data['url'],
