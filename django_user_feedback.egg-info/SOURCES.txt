@@ -21,5 +21,4 @@ user_feedback/migrations/0003_auto_20191220_1906.py
 user_feedback/migrations/__init__.py
 user_feedback/static/.DS_Store
 user_feedback/static/user_feedback/.DS_Store
-user_feedback/static/user_feedback/brand/SCIVERO-LOGO-DARK.png
 user_feedback/static/user_feedback/js/scripts.min.js
