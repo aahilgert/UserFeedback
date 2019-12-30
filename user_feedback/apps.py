@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class UserFeedbackConfig(AppConfig):
-    name = 'user_feedback'
+    name = "user_feedback"

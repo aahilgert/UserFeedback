@@ -1,0 +1,33 @@
+{% load static i18n %} {% get_current_language as LANGUAGE_CODE %}
+<!DOCTYPE html>
+<html lang="{{LANGUAGE_CODE}}">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Roboto|Fanwood+Text:400i|Quicksand:300,400|Rubik:200,300,300i,400"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- ** jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- ** user_feedback scripts -->
+    <script
+      src="{% static 'user_feedback/js/scripts.min.js' %}"
+      defer="true"
+    ></script>
+  </head>
+  <body>
+    <div id="user-feedback-container">
+      {% csrf_token %}
+    </div>
+  </body>
+  <script>
+    window.addEventListener("load", function() {
+      root.injectDialog(
+        "{% trans 'Let us know how we can improve your experience!' %}",
+        "{% static 'user_feedback/brand/SCIVERO-LOGO-DARK.png' %}",
+        "{% trans 'Thanks for your feedback!' %}",
+        "{% trans 'Sorry, please try again later!' %}"
+      );
+    });
+  </script>
+</html>

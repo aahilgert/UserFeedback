@@ -5,26 +5,27 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('user_feedback', '0001_initial'),
-    ]
+    dependencies = [("user_feedback", "0001_initial")]
 
     operations = [
         migrations.AddField(
-            model_name='feedback',
-            name='type',
-            field=models.PositiveIntegerField(choices=[(1, 'Bug Report'), (2, 'Feature Request'), (3, 'Review')], default=1),
+            model_name="feedback",
+            name="type",
+            field=models.PositiveIntegerField(
+                choices=[(1, "Bug Report"), (2, "Feature Request"), (3, "Review")],
+                default=1,
+            ),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='feedback',
-            name='url',
-            field=models.CharField(default='dne', max_length=50),
+            model_name="feedback",
+            name="url",
+            field=models.CharField(default="dne", max_length=50),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='feedback',
-            name='text',
+            model_name="feedback",
+            name="text",
             field=models.TextField(max_length=400, null=True),
         ),
     ]

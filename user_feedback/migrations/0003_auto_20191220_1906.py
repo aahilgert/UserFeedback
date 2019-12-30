@@ -5,14 +5,12 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('user_feedback', '0002_auto_20191219_2043'),
-    ]
+    dependencies = [("user_feedback", "0002_auto_20191219_2043")]
 
     operations = [
         migrations.AlterField(
-            model_name='feedback',
-            name='text',
+            model_name="feedback",
+            name="text",
             field=models.TextField(blank=True, max_length=400, null=True),
-        ),
+        )
     ]
