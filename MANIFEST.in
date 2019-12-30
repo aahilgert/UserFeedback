@@ -1,5 +1,3 @@
 include LICENSE
 include README.rst
-recursive-include user_feedback/static *
-recursive-include user_feedback/templates *
-recursive-include docs *
+recursive-include user_feedback/static/user_feedback/js/scripts.min.js
