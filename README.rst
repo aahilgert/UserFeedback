@@ -1,8 +1,8 @@
 =====
-user_feedback
+django_user_feedback
 =====
 
-user_feedback is a simple Django app to collect and store user feedback.
+django_user_feedback is a simple Django app to collect and store user feedback.
 
 Quick start
 -----------

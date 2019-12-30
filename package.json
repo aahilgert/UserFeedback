@@ -1,7 +1,7 @@
 {
   "name": "django_user_feedback",
   "version": "1.0.0",
-  "description": "Program Analytics app",
+  "description": "a simple Django app to collect and store user feedback",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
