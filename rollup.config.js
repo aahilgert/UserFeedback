@@ -43,7 +43,7 @@ export default [
     input: "user_feedback/static/user_feedback/js/scripts.js",
     output: {
       file: "user_feedback/static/user_feedback/js/scripts.min.js",
-      name: "root",
+      name: "userFeedback",
       format: "iife",
       sourceMap: "inline"
     },
