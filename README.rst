@@ -50,15 +50,14 @@ Quick start
 
 11. Inject the diolog scripts by calling the `injectDialog` function.
     `injectDialog` will take four parameters, dialog title, company logo path,
-    snackbar post success message, and snackbar post failure message.
+    snackbar post success message, and snackbar post failure message:: javascript
 
-.. code-block:: javascript
-    root.injectDialog(
-      "{% trans 'Let us know how we can improve your experience!' %}",
-      "{% static 'user_feedback/example_logo/aperture.svg' %}",
-      "{% trans 'Thanks for your feedback!' %}",
-      "{% trans 'Sorry, please try again later!' %}"
-    );
+      root.injectDialog(
+        "{% trans 'Let us know how we can improve your experience!' %}",
+        "{% static 'user_feedback/example_logo/aperture.svg' %}",
+        "{% trans 'Thanks for your feedback!' %}",
+        "{% trans 'Sorry, please try again later!' %}"
+      );
 
 Quick start dev
 ---------------
@@ -84,7 +83,7 @@ Quick start dev
 
     python user_feedback.py runserver
 
-6. Navigate to '(root)/test/button/', to see the user_feedback button in action::
+6. Navigate to '(root)/test/button/', to see the user_feedback button in action.
 
 7. Build when you make edits to scripts.js::
 
