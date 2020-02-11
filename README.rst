@@ -50,7 +50,7 @@ Quick start
 
 11. Inject the diolog scripts by calling the `injectDialog` function.
     `injectDialog` will take four parameters, dialog title, company logo path,
-    snackbar post success message, and snackbar post failure message:: javascript
+    snackbar post success message, and snackbar post failure message::
 
       root.injectDialog(
         "{% trans 'Let us know how we can improve your experience!' %}",
