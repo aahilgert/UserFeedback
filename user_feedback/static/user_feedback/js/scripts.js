@@ -8,14 +8,6 @@ import FormField from "preact-material-components/FormField";
 import Icon from "preact-material-components/Icon";
 import IconButton from "preact-material-components/IconButton";
 import Snackbar from "preact-material-components/Snackbar";
-import "preact-material-components/Snackbar/style.css";
-import "preact-material-components/IconButton/style.css";
-import "preact-material-components/Radio/style.css";
-import "preact-material-components/FormField/style.css";
-import "preact-material-components/TextField/style.css";
-import "preact-material-components/List/style.css";
-import "preact-material-components/Button/style.css";
-import "preact-material-components/Dialog/style.css";
 
 class DialogPage extends Component {
   state = {
