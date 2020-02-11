@@ -238,7 +238,7 @@ function getCsrfToken() {
 }
 
 function postFeedback(component) {
-  $.post(window.location.origin + "/feedback/post", {
+  $.post(component.props.postUrl, {
     json: JSON.stringify(component.state)
   })
     .done(function(data) {
@@ -259,7 +259,13 @@ function postFeedback(component) {
     });
 }
 
-export function injectDialog(titleText, url, successMessage, failureMessage) {
+export function injectDialog(
+  titleText,
+  url,
+  successMessage,
+  failureMessage,
+  postUrl
+) {
   if (
     document.body.contains(document.getElementById("user-feedback-container"))
   ) {
@@ -269,6 +275,7 @@ export function injectDialog(titleText, url, successMessage, failureMessage) {
         logoUrl={url}
         snackMessageOnSuccess={successMessage}
         snackMessageOnFailure={failureMessage}
+        postUrl={postUrl}
       />,
       document.getElementById("user-feedback-container")
     );
