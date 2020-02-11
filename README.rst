@@ -7,7 +7,7 @@ django_user_feedback is a simple Django app to collect and store user feedback.
 Quick start
 -----------
 
-1. Add the UserFeedback app to your requirements, then pip install.:
+1. Add the UserFeedback app to your requirements, then pip install::
 
     -e git+https://github.com/aahilgert/UserFeedback@master#egg=user_feedback
 
@@ -22,27 +22,27 @@ Quick start
 
     url("feedback/", include("user_feedback.urls")),
 
-3. Migrate
+3. Migrate::
 
     python manage.py migrate
 
-4. Setup an `EMAIL_BACKEND` in your project's settings.py.:
+4. Setup an `EMAIL_BACKEND` in your project's settings.py.
 
-5. Add admin emails to `ADMINS`'s list of tuples in your project's settings.py:
+5. Add admin emails to `ADMINS`'s list of tuples in your project's settings.py::
 
     ADMINS = [('John', 'john@example.com'), ('Mary', 'mary@example.com')]
 
 6. If '/accounts/login/' is not active, make sure to have a `LOGIN_URL` in your settings.py.
 
-7. Import user_feedback's minified script in your base template(s).:
+7. Import user_feedback's minified script in your base template(s)::
 
     <script src="{% static 'user_feedback/js/scripts.min.js' %}" defer="true"></script>
 
-8. Place the following element in templates where you would like for users to offer feedback.:
+8. Place the following element in templates where you would like for users to offer feedback::
 
     <div id="user-feedback-container"></div>
 
-9. If not in the template already, add a csrf token.:
+9. If not in the template already, add a csrf token::
 
     {% csrf_token %}
 
@@ -63,33 +63,33 @@ Quick start
 Quick start dev
 ---------------
 
-1. Install node modules.:
+1. Install node modules::
 
     npm install
 
-2. Install dev-requirements.:
+2. Install dev-requirements::
 
     pip install -r requirements/dev-requirements.txt
 
-3. Install pre-commit.:
+3. Install pre-commit::
 
     pre-commit install
 
-4. Create a superuser and login.:
+4. Create a superuser and login::
 
     ./manage.py createsuperuser
     ...
 
-5. Start the server.:
+5. Start the server::
 
     python user_feedback.py runserver
 
-6. Navigate to '(root)/test/button/', to see the user_feedback button in action.:
+6. Navigate to '(root)/test/button/', to see the user_feedback button in action::
 
-7. Build when you make edits to scripts.js.:
+7. Build when you make edits to scripts.js::
 
     yarn run gulp build-js
 
-8. If you wish, remake the django package.:
+8. If you wish, remake the django package::
 
     python setup.py sdist
