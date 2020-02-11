@@ -7,6 +7,10 @@ django_user_feedback is a simple Django app to collect and store user feedback.
 Quick start
 -----------
 
+1. Add the UserFeedback app to your requirements, then pip install.
+
+    -e git+https://github.com/aahilgert/UserFeedback@master#egg=user_feedback
+
 1. Add "user_feedback" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = [
@@ -18,7 +22,9 @@ Quick start
 
     url("feedback/", include("user_feedback.urls")),
 
-3. Run `python manage.py migrate` to create the user_feedback models.
+3. Migrate
+
+    python manage.py migrate
 
 4. Setup an `EMAIL_BACKEND` in your project's settings.py.
 
@@ -40,18 +46,19 @@ Quick start
 
     {% csrf_token %}
 
-10. Add the desired company logo to your static file.
+10. Add the desired company logo to your static files.
 
 11. Inject the diolog scripts by calling the `injectDialog` function.
     `injectDialog` will take four parameters, dialog title, company logo path,
     snackbar post success message, and snackbar post failure message.
 
-    root.injectDialog(
-      "{% trans 'Let us know how we can improve your experience!' %}",
-      "{% static 'user_feedback/example_logo/aperture.svg' %}",
-      "{% trans 'Thanks for your feedback!' %}",
-      "{% trans 'Sorry, please try again later!' %}"
-    );
+    .. code-block:: javascript
+      root.injectDialog(
+        "{% trans 'Let us know how we can improve your experience!' %}",
+        "{% static 'user_feedback/example_logo/aperture.svg' %}",
+        "{% trans 'Thanks for your feedback!' %}",
+        "{% trans 'Sorry, please try again later!' %}"
+      );
 
 Quick start dev
 ---------------
