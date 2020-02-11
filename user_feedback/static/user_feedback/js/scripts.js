@@ -105,6 +105,7 @@ class DialogPage extends Component {
                   <Radio
                     id="radio-1"
                     name="feedback-type"
+                    checked={this.state.type == 1}
                     onInput={this.updateType}
                   />
                   <label for="radio-1">Bug Report</label>
@@ -113,6 +114,7 @@ class DialogPage extends Component {
                   <Radio
                     id="radio-2"
                     name="feedback-type"
+                    checked={this.state.type == 2}
                     onInput={this.updateType}
                   />
                   <label for="radio-2">Feature Request</label>
@@ -121,6 +123,7 @@ class DialogPage extends Component {
                   <Radio
                     id="radio-3"
                     name="feedback-type"
+                    checked={this.state.type == 3}
                     onInput={this.updateType}
                   />
                   <label for="radio-3">Review</label>
