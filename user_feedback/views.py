@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import bleach
 import json
 
@@ -41,7 +41,7 @@ def send_bug_report_emails(request, data):
                 type=1,
                 url=data["url"],
                 created_on__lte=datetime.now(timezone.utc),
-                created_on__gt=datetime.now(timezone.utc) - datetime.timedelta(days=10),
+                created_on__gt=datetime.now(timezone.utc) - timedelta(days=10),
             ).count()
             - 1,
         ),
