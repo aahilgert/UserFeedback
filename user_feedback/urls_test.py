@@ -1,8 +1,14 @@
-from django.conf.urls import include, url
+from django.conf.urls import include, url, path
+from . import urls
 
 from . import views_test
 
+app_name = "test_user_feedback"
+
 urlpatterns = [
     url("test/button/", views_test.button, name="button"),
-    url("feedback/", include("user_feedback.urls")),
+    path(
+        "feedback/",
+        include((urls.urlpatterns, urls.app_name), namespace="user_feedback"),
+    ),
 ]

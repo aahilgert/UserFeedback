@@ -14,7 +14,7 @@ class FeedbackPostTest(TestCase):
 
     def test_feedback_post(self):
         response = self.client.post(
-            reverse("post-feedback"),
+            reverse("user_feedback:post"),
             data={
                 "json": '{"rating": 4, "text": "dfgfdgdfgdfgdfgfdgdfg", '
                 '"author": null, "url": "/course/1/", "type": "2"}'
@@ -27,7 +27,7 @@ class FeedbackPostTest(TestCase):
         logged_in = self.client.login(username="testuser", password="testpass")
         self.assertTrue(logged_in)
         response = self.client.get(
-            reverse("post-feedback"),
+            reverse("user_feedback:post"),
             data={
                 "json": '{"rating": 4, "text": "dfgfdgdfgdfgdfgfdgdfg", '
                 '"author": null, "url": "/course/1/", "type": "2"}'
@@ -35,7 +35,7 @@ class FeedbackPostTest(TestCase):
         )
         self.assertEqual(response.status_code, 405)
         response = self.client.post(
-            reverse("post-feedback"),
+            reverse("user_feedback:post"),
             data={
                 "json": '{"rating": 4, "text": "dfgfdgdfgdfgdfgfdgdfg", '
                 '"author": null, "url": "/course/1/", "type": "2"}'
@@ -56,7 +56,7 @@ class FeedbackPostTest(TestCase):
         logged_in = self.client.login(username="testuser", password="testpass")
         self.assertTrue(logged_in)
         self.client.post(
-            reverse("post-feedback"),
+            reverse("user_feedback:post"),
             data={
                 "json": '{"rating": null, "text": "dfgfdgdfgdfgdfgfdgdfg", '
                 '"author": null, "url": "/course/1/", "type": "1"}'
@@ -78,14 +78,14 @@ class FeedbackPostTest(TestCase):
         logged_in = self.client.login(username="testuser", password="testpass")
         self.assertTrue(logged_in)
         self.client.post(
-            reverse("post-feedback"),
+            reverse("user_feedback:post"),
             data={
                 "json": '{"rating": null, "text": "dfgfdgdfgdfgdfgfdgdfg", '
                 '"author": null, "url": "/course/1/", "type": "1"}'
             },
         )
         self.client.post(
-            reverse("post-feedback"),
+            reverse("user_feedback:post"),
             data={
                 "json": '{"rating": null, "text": "dfgfdgdfgdfgdfgfdgdfg", '
                 '"author": null, "url": "/course/1/", "type": "1"}'
