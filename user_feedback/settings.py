@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "user_feedback",
+    "user_feedback.apps.UserFeedbackConfig",
     "rest_framework",
     "django.contrib.admin",
     "django.contrib.auth",
