@@ -17,3 +17,7 @@ class Feedback(models.Model):
 
     def __str__(self):
         return self.text
+
+    class Meta:
+        verbose_name = "Feedback"
+        verbose_name_plural = "Feedback"

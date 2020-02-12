@@ -1,4 +1,5 @@
 from django.conf.urls import include, url, path
+from django.contrib import admin
 from . import urls
 
 from . import views_test
@@ -11,4 +12,5 @@ urlpatterns = [
         "feedback/",
         include((urls.urlpatterns, urls.app_name), namespace="user_feedback"),
     ),
+    path("admin/", admin.site.urls),
 ]
